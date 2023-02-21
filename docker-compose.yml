@@ -1,0 +1,13 @@
+services:
+  frontend:
+    build: .\frontend
+    image: frontend
+    ports:
+      - '3000:3000'
+  backend:
+    build: .\backend
+    image: backend
+    depends_on:
+      - frontend
+    ports:
+      - '8080:8080'

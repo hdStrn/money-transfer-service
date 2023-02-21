@@ -1,0 +1,35 @@
+@import 'src/styles/colors';
+
+// :global(#root) was used because Material Design use hard cascade
+:global(#root) {
+    .label {
+        color: $THEME_LIGTH_GRAY;
+        font-size: 14px;
+        padding-bottom: 5px;
+    
+        &.error {
+            color: $THEME_RED;
+        }
+    }
+
+    .component {
+        color: $THEME_BLACK;
+        font-size: 18px;
+
+        &.not-empty {
+            font-weight: 600;
+        }
+
+        &.error {
+            color: $THEME_RED;
+        }
+    }
+
+    .field {
+        margin-top: 10px;
+        margin-bottom: 15px;
+        padding-left: 25px;
+        padding-right: 25px;
+        width: 100%;
+    }
+}
