@@ -1,8 +1,9 @@
 package ru.netology.netologydiplomamoneytransferservice.repository;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 import ru.netology.netologydiplomamoneytransferservice.domain.Card;
-import ru.netology.netologydiplomamoneytransferservice.dto.Amount;
+import ru.netology.netologydiplomamoneytransferservice.api.dto.Amount;
 
 import java.util.Map;
 import java.util.Optional;
@@ -13,7 +14,13 @@ public class CardRepositoryImpl implements CardRepository {
 
     private final Map<String, Card> cards = new ConcurrentHashMap<>();
 
-    {
+    @Override
+    public Optional<Card> getCardByNumber(String cardNumber) {
+        return Optional.ofNullable(cards.get(cardNumber));
+    }
+
+    @PostConstruct
+    public void init() {
         cards.put("1111222233334444", new Card("1111222233334444", "01/30", "111",
                 new ConcurrentHashMap<>(Map.of("RUR", new Amount(50000, "RUR")))));
 
@@ -35,10 +42,5 @@ public class CardRepositoryImpl implements CardRepository {
                         "USD", new Amount(5000, "USD"),
                         "EUR", new Amount(1000, "EUR")
                 ))));
-    }
-
-    @Override
-    public Optional<Card> getCardByNumber(String cardNumber) {
-        return Optional.ofNullable(cards.get(cardNumber));
     }
 }

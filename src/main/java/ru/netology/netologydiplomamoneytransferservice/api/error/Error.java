@@ -1,4 +1,4 @@
-package ru.netology.netologydiplomamoneytransferservice.dto;
+package ru.netology.netologydiplomamoneytransferservice.api.error;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

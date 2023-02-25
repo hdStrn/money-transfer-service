@@ -1,4 +1,4 @@
-package ru.netology.netologydiplomamoneytransferservice.dto;
+package ru.netology.netologydiplomamoneytransferservice.api.dto;
 
 import lombok.*;
 

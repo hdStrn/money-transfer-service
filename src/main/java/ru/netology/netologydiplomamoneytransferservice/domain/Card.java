@@ -1,7 +1,7 @@
 package ru.netology.netologydiplomamoneytransferservice.domain;
 
 import lombok.*;
-import ru.netology.netologydiplomamoneytransferservice.dto.Amount;
+import ru.netology.netologydiplomamoneytransferservice.api.dto.Amount;
 
 import java.util.Map;
 

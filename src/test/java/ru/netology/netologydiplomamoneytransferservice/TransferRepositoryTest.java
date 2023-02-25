@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.util.ReflectionTestUtils;
-import ru.netology.netologydiplomamoneytransferservice.dto.Amount;
-import ru.netology.netologydiplomamoneytransferservice.dto.OperationConfirmation;
-import ru.netology.netologydiplomamoneytransferservice.dto.Transfer;
+import ru.netology.netologydiplomamoneytransferservice.api.dto.Amount;
+import ru.netology.netologydiplomamoneytransferservice.api.dto.OperationConfirmation;
+import ru.netology.netologydiplomamoneytransferservice.api.dto.Transfer;
 import ru.netology.netologydiplomamoneytransferservice.repository.TransferRepositoryImpl;
 
 import java.util.Map;

@@ -12,9 +12,9 @@ import org.springframework.http.ResponseEntity;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
-import ru.netology.netologydiplomamoneytransferservice.dto.Amount;
-import ru.netology.netologydiplomamoneytransferservice.dto.OperationConfirmation;
-import ru.netology.netologydiplomamoneytransferservice.dto.Transfer;
+import ru.netology.netologydiplomamoneytransferservice.api.dto.Amount;
+import ru.netology.netologydiplomamoneytransferservice.api.dto.OperationConfirmation;
+import ru.netology.netologydiplomamoneytransferservice.api.dto.Transfer;
 
 @Testcontainers
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)

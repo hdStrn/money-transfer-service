@@ -6,10 +6,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import ru.netology.netologydiplomamoneytransferservice.api.dto.*;
 import ru.netology.netologydiplomamoneytransferservice.domain.Card;
-import ru.netology.netologydiplomamoneytransferservice.dto.*;
-import ru.netology.netologydiplomamoneytransferservice.domain.InvalidCardDataException;
-import ru.netology.netologydiplomamoneytransferservice.domain.InvalidConfirmationDataException;
+import ru.netology.netologydiplomamoneytransferservice.api.error.InvalidCardDataException;
+import ru.netology.netologydiplomamoneytransferservice.api.error.InvalidConfirmationDataException;
 import ru.netology.netologydiplomamoneytransferservice.repository.CardRepository;
 import ru.netology.netologydiplomamoneytransferservice.repository.TransferRepository;
 

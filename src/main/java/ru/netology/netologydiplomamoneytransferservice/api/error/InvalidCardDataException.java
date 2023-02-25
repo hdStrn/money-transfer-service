@@ -1,4 +1,4 @@
-package ru.netology.netologydiplomamoneytransferservice.domain;
+package ru.netology.netologydiplomamoneytransferservice.api.error;
 
 public class InvalidCardDataException extends RuntimeException {
 

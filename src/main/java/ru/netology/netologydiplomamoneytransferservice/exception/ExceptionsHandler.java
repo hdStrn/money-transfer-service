@@ -4,9 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import ru.netology.netologydiplomamoneytransferservice.domain.InvalidCardDataException;
-import ru.netology.netologydiplomamoneytransferservice.domain.InvalidConfirmationDataException;
-import ru.netology.netologydiplomamoneytransferservice.dto.Error;
+import ru.netology.netologydiplomamoneytransferservice.api.error.InvalidCardDataException;
+import ru.netology.netologydiplomamoneytransferservice.api.error.InvalidConfirmationDataException;
+import ru.netology.netologydiplomamoneytransferservice.api.error.Error;
 
 @RestControllerAdvice
 public class ExceptionsHandler {
