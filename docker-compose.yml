@@ -1,11 +1,6 @@
 services:
-  frontend:
-    build: ./frontend
-    image: frontend
+  server:
+    build: .
+    image: server
     ports:
-      - '3000:3000'
-  backend:
-    build: ./backend
-    image: backend
-    ports:
-      - '8080:8080'
+      - '5500:5500'
