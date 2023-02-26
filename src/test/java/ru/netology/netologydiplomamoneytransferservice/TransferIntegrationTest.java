@@ -16,6 +16,9 @@ import ru.netology.netologydiplomamoneytransferservice.api.dto.Amount;
 import ru.netology.netologydiplomamoneytransferservice.api.dto.OperationConfirmation;
 import ru.netology.netologydiplomamoneytransferservice.api.dto.Transfer;
 
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 @Testcontainers
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -26,10 +29,10 @@ public class TransferIntegrationTest {
     private static final int PORT = 9999;
     @Container
     private static final GenericContainer<?> SERVER = new GenericContainer<>("server")
-            .withExposedPorts(8080)
+            .withExposedPorts(5500)
             .withCreateContainerCmdModifier(cmd -> cmd.withHostConfig(
                     new HostConfig().withPortBindings(
-                            new PortBinding(Ports.Binding.bindPort(PORT), new ExposedPort(8080)))));
+                            new PortBinding(Ports.Binding.bindPort(PORT), new ExposedPort(5500)))));
 
     @Test
     @Order(1)
@@ -54,8 +57,7 @@ public class TransferIntegrationTest {
                 "http://localhost:" + PORT + "/transfer", invalidCardTransfer, String.class);
         String response = backendEntity.getBody();
 
-        Assertions.assertEquals("{\"id\":1,\"message\":\"Карта с номером 7456321215568799 " +
-                "не найдена в базе\"}", response);
+        assertThat(response, containsString("Карта с номером 7456321215568799 не найдена в базе"));
     }
 
     @Order(3)
@@ -79,7 +81,7 @@ public class TransferIntegrationTest {
                 "http://localhost:" + PORT + "/confirmOperation", invalidCodeConfirmation, String.class);
         String response = backendEntity.getBody();
 
-        Assertions.assertEquals("{\"id\":2,\"message\":\"Неверный код подтверждения (1111)\"}", response);
+        assertThat(response, containsString("Неверный код подтверждения (1111)"));
     }
 
     @Order(5)
@@ -91,6 +93,6 @@ public class TransferIntegrationTest {
                 "http://localhost:" + PORT + "/confirmOperation", invalidOperationIdConfirmation, String.class);
         String response = backendEntity.getBody();
 
-        Assertions.assertEquals("{\"id\":3,\"message\":\"Нет операции с id 5\"}", response);
+        assertThat(response, containsString("Нет операции с id 5"));
     }
 }

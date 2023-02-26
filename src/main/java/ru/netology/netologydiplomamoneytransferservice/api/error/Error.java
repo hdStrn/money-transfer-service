@@ -9,8 +9,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 @AllArgsConstructor
 public class Error {
 
-    public static AtomicInteger idCounter = new AtomicInteger(0);
-
-    private Integer id;
+    private String id;
     private String message;
 }

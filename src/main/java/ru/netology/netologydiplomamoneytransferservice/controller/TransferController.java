@@ -1,9 +1,9 @@
-package ru.netology.netologydiplomamoneytransferservice.api.controller;
+package ru.netology.netologydiplomamoneytransferservice.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.netology.netologydiplomamoneytransferservice.api.TransferResource;
 import ru.netology.netologydiplomamoneytransferservice.api.dto.OperationConfirmation;
 import ru.netology.netologydiplomamoneytransferservice.api.dto.Transfer;
 import ru.netology.netologydiplomamoneytransferservice.api.dto.SuccessConfirmation;
@@ -11,11 +11,11 @@ import ru.netology.netologydiplomamoneytransferservice.api.dto.SuccessTransfer;
 import ru.netology.netologydiplomamoneytransferservice.service.TransferService;
 
 @RestController
-@RequiredArgsConstructor(onConstructor_ = {@Autowired})
+@RequiredArgsConstructor
 @CrossOrigin(
         origins = {"${cors.allowed-origins}"},
         methods = {RequestMethod.POST, RequestMethod.OPTIONS})
-public class TransferController implements TransferResource{
+public class TransferController implements TransferResource {
 
     private final TransferService transferService;
 

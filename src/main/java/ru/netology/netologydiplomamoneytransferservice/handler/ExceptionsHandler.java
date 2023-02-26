@@ -1,4 +1,4 @@
-package ru.netology.netologydiplomamoneytransferservice.exception;
+package ru.netology.netologydiplomamoneytransferservice.handler;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import ru.netology.netologydiplomamoneytransferservice.api.error.InvalidCardDataException;
 import ru.netology.netologydiplomamoneytransferservice.api.error.InvalidConfirmationDataException;
 import ru.netology.netologydiplomamoneytransferservice.api.error.Error;
+
+import java.util.UUID;
 
 @RestControllerAdvice
 public class ExceptionsHandler {
@@ -23,9 +25,9 @@ public class ExceptionsHandler {
 
     public ResponseEntity<Error> sendError(Exception ex, HttpStatus httpStatus) {
 
-        int errorId = Error.idCounter.incrementAndGet();
+        String id = UUID.randomUUID().toString();
         String errorMsg = ex.getMessage();
 
-        return new ResponseEntity<>(new Error(errorId, errorMsg), httpStatus);
+        return new ResponseEntity<>(new Error(id, errorMsg), httpStatus);
     }
 }
