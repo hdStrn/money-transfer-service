@@ -37,7 +37,7 @@ public class TransferServiceImpl implements TransferService {
                 .map(transferRepository::addTransfer)
                 .map(String::valueOf)
                 .map(SuccessTransfer::new)
-                .get();
+                .orElseThrow();
     }
 
     @Override
@@ -48,7 +48,7 @@ public class TransferServiceImpl implements TransferService {
                 .map(OperationConfirmation::getOperationId)
                 .filter(this::executeTransfer)
                 .map(SuccessConfirmation::new)
-                .get();
+                .orElseThrow();
     }
 
     @Override
